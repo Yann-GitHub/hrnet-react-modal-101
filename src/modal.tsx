@@ -10,26 +10,26 @@ interface ModalProps {
 }
 
   const ModalContent = styled.div`
-    background: '#fff',
-    padding: '20px',
-    borderRadius: '5px',
-    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
-    maxWidth: '80%',
-    maxHeight: '80%',
-    overflow: 'auto'
+    background: #fff;
+    padding: 20px;
+    borderRadius: 5px;
+    boxShadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    maxWidth: 80%;
+    maxHeight: 80%;
+    overflow: auto;
     position: relative;
   `;
 
   const ModalContainer = styled.div`
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backgroundColor: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justifyContent: center;
+    alignItems: center
   `;
 
   const CloseButton = styled.button`
@@ -58,7 +58,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, modalCustomStyle, childr
       <ModalContent style={modalCustomStyle || {}}>
         {children}
         <CloseButton onClick={onClose} >
-            &#10005
+           X
         </CloseButton>
         </ModalContent>
     </ModalContainer>
