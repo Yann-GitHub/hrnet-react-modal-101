@@ -1,6 +1,6 @@
 {
   "name": "hrnet-react-modal-101",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple modal component to demonstrate publishing to npm",
   "main": "index.js",
   "scripts": {
