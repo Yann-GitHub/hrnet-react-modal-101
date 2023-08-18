@@ -14,8 +14,8 @@ interface ModalProps {
     padding: 20px;
     borderRadius: 5px;
     boxShadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    maxWidth: 80%;
-    maxHeight: 80%;
+    max-width: 80%;
+    max-height: 80%;
     overflow: auto;
     position: relative;
   `;
@@ -26,10 +26,10 @@ interface ModalProps {
     left: 0;
     width: 100%;
     height: 100%;
-    backgroundColor: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justifyContent: center;
-    alignItems: center
+    justify-content: center;
+    align-items: center
   `;
 
   const CloseButton = styled.button`
