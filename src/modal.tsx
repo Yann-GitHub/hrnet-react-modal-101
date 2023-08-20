@@ -1,5 +1,5 @@
-// import * as React from "react";
 import React from 'react';
+import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 interface ModalProps {
@@ -12,8 +12,8 @@ interface ModalProps {
   const ModalContent = styled.div`
     background: #fff;
     padding: 20px;
-    borderRadius: 5px;
-    boxShadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     max-width: 80%;
     max-height: 80%;
     overflow: auto;
@@ -30,36 +30,52 @@ interface ModalProps {
     display: flex;
     justify-content: center;
     align-items: center
+    z-index: 100;
   `;
 
   const CloseButton = styled.button`
-    background-color: #e0e0e0;
-    color: #333;
+    color: #637288;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
     position: absolute;
-    top: 10px;
-    right: 10px;
-
-    &:hover {
-        background-color: #333;
-        color: #fff;
-    }
+    top: 8px;
+    right: 15px;
 `;
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, modalCustomStyle, children }) => {
   if (!isOpen) return null;
 
+  const modalContentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (isOpen && modalContentRef.current) {
+      modalContentRef.current.focus();
+    }
+  }, [isOpen]);
+
   return (
-    <ModalContainer>
-      <ModalContent style={modalCustomStyle || {}}>
-        {children}
-        <CloseButton onClick={onClose} >
-           X
-        </CloseButton>
+    <ModalContainer
+        tabIndex={-1}
+        onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+                onClose();
+            }
+        }}
+    >
+        <ModalContent
+            tabIndex={0}
+            style={modalCustomStyle || {}}
+            ref={modalContentRef}
+            role="dialog"
+            aria-modal="true"
+        >
+            {children}
+            <CloseButton
+                tabIndex={0}
+                onClick={onClose}
+                onKeyDown={(e) => {if (e.key === 'Enter') onClose();}}>
+            X
+            </CloseButton>
         </ModalContent>
     </ModalContainer>
   );
