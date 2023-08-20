@@ -108,6 +108,9 @@ export default App;
 
 In this example, we're passing a customModalStyle object to the `modalCustomStyle` prop. This prop allows you to provide custom styles for the modal according to your needs.
 
+## Publishing on NPM
+The HRnet React Modal is available as an npm package. You can find it [here](https://www.npmjs.com/package/hrnet-react-modal-101/v/1.0.3).
+
 ## License
 
 This project is licensed under the ISC License.
