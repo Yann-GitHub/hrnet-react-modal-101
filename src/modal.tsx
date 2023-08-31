@@ -47,6 +47,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, modalCustomStyle, childr
 
   const modalContentRef = useRef<HTMLDivElement | null>(null);
 
+  // Focus on modal content when modal is opened
   useEffect(() => {
     if (isOpen && modalContentRef.current) {
       modalContentRef.current.focus();
